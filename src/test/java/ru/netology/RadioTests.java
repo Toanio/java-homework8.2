@@ -37,6 +37,7 @@ public class RadioTests {
         newRadio.setCurrentSoundVolume(5);
         newRadio.getMinusButton();
         assertEquals(4, newRadio.getCurrentSoundVolume());
+        
     }
 
     @Test
