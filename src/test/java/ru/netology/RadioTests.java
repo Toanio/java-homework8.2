@@ -5,46 +5,38 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class RadioTests {
-    @Test
-    public void shouldCreateRadioStation() {
-        Radio newRadio = new Radio();
-        newRadio.setCurrentRadioStation(5);
-        newRadio.getPrevButton();
-        assertEquals(4, newRadio.getCurrentRadioStation());
 
-
-    }
 
     @Test
-    public void shouldRadioPressNextButton() {
+    public void shouldRadioPressNextRadioStationButton() {
         Radio newRadio = new Radio();
         newRadio.setCurrentRadioStation(8);
-        newRadio.getNextButton();
+        newRadio.getNextRadioStationButton();
         assertEquals(9, newRadio.getCurrentRadioStation());
     }
 
     @Test
-    public void shouldRadioPressPrevButton() {
+    public void shouldRadioPressPreviousButton() {
         Radio newRadio = new Radio();
         newRadio.setCurrentRadioStation(5);
-        newRadio.getPrevButton();
+        newRadio.getPreviousRadioStationButton();
         assertEquals(4, newRadio.getCurrentRadioStation());
     }
 
     @Test
-    public void shouldRadioPressMinusButton() {
+    public void shouldRadioPressDecreaseVolumeButton() {
         Radio newRadio = new Radio();
         newRadio.setCurrentSoundVolume(5);
-        newRadio.getMinusButton();
+        newRadio.getDecreaseVolumeButton();
         assertEquals(4, newRadio.getCurrentSoundVolume());
-        
+
     }
 
     @Test
-    public void shouldRadioPressPlusButton() {
+    public void shouldRadioPressIncreaseVolumeButton() {
         Radio newRadio = new Radio();
         newRadio.setCurrentSoundVolume(5);
-        newRadio.getPlusButton();
+        newRadio.getIncreaseVolumeButton();
         assertEquals(6, newRadio.getCurrentSoundVolume());
     }
 
@@ -52,23 +44,23 @@ public class RadioTests {
     public void shouldRadioVolumeNotMax() {
         Radio newRadio = new Radio();
         newRadio.setCurrentSoundVolume(9);
-        newRadio.getPlusButton();
-        assertEquals(9, newRadio.getCurrentSoundVolume());
+        newRadio.getIncreaseVolumeButton();
+        assertEquals(0, newRadio.getCurrentSoundVolume());
     }
 
     @Test
     public void shouldRadioVolumeNotMin() {
         Radio newRadio = new Radio();
         newRadio.setCurrentSoundVolume(0);
-        newRadio.getMinusButton();
-        assertEquals(0, newRadio.getCurrentSoundVolume());
+        newRadio.getDecreaseVolumeButton();
+        assertEquals(9, newRadio.getCurrentSoundVolume());
     }
 
     @Test
     public void shouldRadioStationOverMax() {
         Radio newRadio = new Radio();
         newRadio.setCurrentRadioStation(10);
-        newRadio.getNextButton();
+        newRadio.getNextRadioStationButton();
         assertEquals(0, newRadio.getCurrentRadioStation());
     }
 
@@ -76,7 +68,7 @@ public class RadioTests {
     public void shouldRadioStationOverMin() {
         Radio newRadio = new Radio();
         newRadio.setCurrentRadioStation(0);
-        newRadio.getPrevButton();
+        newRadio.getPreviousRadioStationButton();
         assertEquals(10, newRadio.getCurrentRadioStation());
     }
 }
