@@ -26,7 +26,7 @@ public class Radio {
     public void getPreviousRadioStationButton() {
         currentRadioStation--;
         if (currentRadioStation < 0) {
-            currentRadioStation=10;
+            currentRadioStation = 10;
             return;
         }
 
@@ -35,7 +35,7 @@ public class Radio {
     public void getNextRadioStationButton() {
         currentRadioStation++;
         if (currentRadioStation > 10) {
-            currentRadioStation=0;
+            currentRadioStation = 0;
             return;
         }
     }
@@ -43,7 +43,7 @@ public class Radio {
     public void getIncreaseVolumeButton() {
         currentSoundVolume++;
         if (currentSoundVolume > 9) {
-            currentSoundVolume=0;
+            currentSoundVolume = 0;
             return;
         }
     }
@@ -51,7 +51,7 @@ public class Radio {
     public void getDecreaseVolumeButton() {
         currentSoundVolume--;
         if (currentSoundVolume < 0) {
-            currentSoundVolume=9;
+            currentSoundVolume = 9;
             return;
         }
     }
