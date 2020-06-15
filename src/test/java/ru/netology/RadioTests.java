@@ -87,5 +87,16 @@ public class RadioTests {
         newRadio.setRemoteControlButtons(7);
         assertEquals(7, newRadio.getCurrentRadioStation());
     }
+    @Test
+    public void shouldSetRadioWithAllArgsLambok(){
+        Radio radioLambok=new Radio(10,15,0,10,0,100);
+        assertEquals(10,radioLambok.getCurrentRadioStation());
+        assertEquals(15,radioLambok.getCurrentSoundVolume());
+        assertEquals(0,radioLambok.getMinRadioStation());
+        assertEquals(10,radioLambok.getMaxRadioStation());
+        assertEquals(0,radioLambok.getMinRadioVolume());
+        assertEquals(100,radioLambok.getMaxRadioVolume());
+    }
+
 
 }
