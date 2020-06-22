@@ -9,6 +9,7 @@ public class RadioTests {
 
     @Test
     public void shouldRadioPressNextRadioStationButton() {
+        newRadio.setCurrentRadioStation(5);
 
         newRadio.getNextRadioStationButton();
 
@@ -17,6 +18,7 @@ public class RadioTests {
 
     @Test
     public void shouldRadioPressPreviousButton() {
+        newRadio.setCurrentRadioStation(5);
 
         newRadio.getPreviousRadioStationButton();
 
@@ -25,7 +27,8 @@ public class RadioTests {
 
     @Test
     public void shouldRadioPressDecreaseVolumeButton() {
-
+        newRadio.setCurrentSoundVolume(20);
+        
         newRadio.getDecreaseVolumeButton();
 
         assertEquals(19, newRadio.getCurrentSoundVolume());
@@ -34,7 +37,7 @@ public class RadioTests {
 
     @Test
     public void shouldRadioPressIncreaseVolumeButton() {
-
+        newRadio.setCurrentSoundVolume(20);
 
         newRadio.getIncreaseVolumeButton();
 
