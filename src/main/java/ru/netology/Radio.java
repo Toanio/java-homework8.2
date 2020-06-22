@@ -1,17 +1,32 @@
 package ru.netology;
 
 public class Radio {
+
     private int currentRadioStation;
-
     private int currentSoundVolume;
+    private int minRadioStation = 0;
+    private int maxRadioStation = 10;
+    private int minRadioVolume = 0;
+    private int maxRadioVolume = 100;
 
+
+    public void setRemoteControlButtons(int remoteControlButtons) {
+        currentRadioStation=remoteControlButtons;
+    }
+
+    public Radio() {
+
+    }
+
+    public Radio(int maxRadioStation) {
+        this.maxRadioStation = maxRadioStation;
+    }
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
 
     public void setCurrentRadioStation(int currentRadioStation) {
-
         this.currentRadioStation = currentRadioStation;
     }
 
@@ -23,37 +38,37 @@ public class Radio {
         this.currentSoundVolume = currentSoundVolume;
     }
 
-    public void getPreviousRadioStationButton() {
+    public void clickPreviousRadioStationButton() {
+
+        if (currentRadioStation == minRadioStation) {
+            currentRadioStation = maxRadioStation;
+            return;
+        }
         currentRadioStation--;
-        if (currentRadioStation < 0) {
-            currentRadioStation = 10;
-            return;
-        }
-
     }
 
-    public void getNextRadioStationButton() {
+    public void clickNextRadioStationButton() {
+
+        if (currentRadioStation >= maxRadioStation) {
+            currentRadioStation = minRadioStation;
+            return;
+        }
         currentRadioStation++;
-        if (currentRadioStation > 10) {
-            currentRadioStation = 0;
-            return;
-        }
     }
 
-    public void getIncreaseVolumeButton() {
+    public void clickIncreaseVolumeButton() {
+        if (currentSoundVolume == maxRadioVolume) {
+            return;
+        }
         currentSoundVolume++;
-        if (currentSoundVolume > 9) {
-            currentSoundVolume = 0;
-            return;
-        }
     }
 
-    public void getDecreaseVolumeButton() {
-        currentSoundVolume--;
-        if (currentSoundVolume < 0) {
-            currentSoundVolume = 9;
+    public void clickDecreaseVolumeButton() {
+
+        if (currentSoundVolume == minRadioVolume) {
             return;
         }
+        currentSoundVolume--;
     }
 
 
