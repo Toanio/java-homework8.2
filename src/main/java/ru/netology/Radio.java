@@ -18,44 +18,60 @@ public class Radio {
 
 
     public void setRemoteControlButtons(int remoteControlButtons) {
-        setCurrentRadioStation(remoteControlButtons);
+        currentRadioStation=remoteControlButtons;
     }
 
     public Radio(int maxRadioStation) {
         this.maxRadioStation = maxRadioStation;
     }
 
-    public void getPreviousRadioStationButton() {
-        currentRadioStation--;
-        if (currentRadioStation < minRadioStation) {
+    public int getCurrentRadioStation() {
+        return currentRadioStation;
+    }
+
+    public void setCurrentRadioStation(int currentRadioStation) {
+        this.currentRadioStation = currentRadioStation;
+    }
+
+    public int getCurrentSoundVolume() {
+        return currentSoundVolume;
+    }
+
+    public void setCurrentSoundVolume(int currentSoundVolume) {
+        this.currentSoundVolume = currentSoundVolume;
+    }
+
+    public void clickPreviousRadioStationButton() {
+
+        if (currentRadioStation == minRadioStation) {
             currentRadioStation = maxRadioStation;
             return;
         }
-
+        currentRadioStation--;
     }
 
-    public void getNextRadioStationButton() {
-        currentRadioStation++;
-        if (currentRadioStation > maxRadioStation) {
+    public void clickNextRadioStationButton() {
+
+        if (currentRadioStation >= maxRadioStation) {
             currentRadioStation = minRadioStation;
             return;
         }
+        currentRadioStation++;
     }
 
-    public void getIncreaseVolumeButton() {
+    public void clickIncreaseVolumeButton() {
+        if (currentSoundVolume == maxRadioVolume) {
+            return;
+        }
         currentSoundVolume++;
-        if (currentSoundVolume > maxRadioVolume) {
-            currentSoundVolume = maxRadioVolume;
-            return;
-        }
     }
 
-    public void getDecreaseVolumeButton() {
-        currentSoundVolume--;
-        if (currentSoundVolume < minRadioVolume) {
-            currentSoundVolume = minRadioVolume;
+    public void clickDecreaseVolumeButton() {
+
+        if (currentSoundVolume == minRadioVolume) {
             return;
         }
+        currentSoundVolume--;
     }
 
 
