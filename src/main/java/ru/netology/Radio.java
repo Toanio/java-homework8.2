@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Radio {
 
@@ -16,9 +16,12 @@ public class Radio {
     private int minRadioVolume = 0;
     private int maxRadioVolume = 100;
 
+    public void Radio() {
+
+    }
 
     public void setRemoteControlButtons(int remoteControlButtons) {
-        currentRadioStation=remoteControlButtons;
+        currentRadioStation = remoteControlButtons;
 
     }
 
