@@ -11,7 +11,7 @@ public class Radio {
 
 
     public void setRemoteControlButtons(int remoteControlButtons) {
-        setCurrentRadioStation(remoteControlButtons);
+        currentRadioStation=remoteControlButtons;
     }
 
     public Radio() {
@@ -38,37 +38,37 @@ public class Radio {
         this.currentSoundVolume = currentSoundVolume;
     }
 
-    public void getPreviousRadioStationButton() {
-        currentRadioStation--;
-        if (currentRadioStation < minRadioStation) {
+    public void clickPreviousRadioStationButton() {
+
+        if (currentRadioStation == minRadioStation) {
             currentRadioStation = maxRadioStation;
             return;
         }
-
+        currentRadioStation--;
     }
 
-    public void getNextRadioStationButton() {
-        currentRadioStation++;
-        if (currentRadioStation > maxRadioStation) {
+    public void clickNextRadioStationButton() {
+
+        if (currentRadioStation >= maxRadioStation) {
             currentRadioStation = minRadioStation;
             return;
         }
+        currentRadioStation++;
     }
 
-    public void getIncreaseVolumeButton() {
+    public void clickIncreaseVolumeButton() {
+        if (currentSoundVolume == maxRadioVolume) {
+            return;
+        }
         currentSoundVolume++;
-        if (currentSoundVolume > maxRadioVolume) {
-            currentSoundVolume = maxRadioVolume;
-            return;
-        }
     }
 
-    public void getDecreaseVolumeButton() {
-        currentSoundVolume--;
-        if (currentSoundVolume < minRadioVolume) {
-            currentSoundVolume = minRadioVolume;
+    public void clickDecreaseVolumeButton() {
+
+        if (currentSoundVolume == minRadioVolume) {
             return;
         }
+        currentSoundVolume--;
     }
 
 
